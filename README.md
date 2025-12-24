@@ -41,8 +41,10 @@ The system was tested on a strictly unseen test set. The **Vision Transformer (V
 
 ## 🏗️ Architecture & Methodology
 
-### 1. Data Preprocessing
-* **Dataset:** 13,000+ images from FaceForensics++ and DFFD (Balanced 50/50 split).
+* ### 1. Data Preprocessing
+* **Dataset:** We utilized a balanced dataset of 13,000+ facial images sourced from two primary benchmarks:
+    * **[FaceForensics++ (FF++)](https://www.kaggle.com/datasets/xdxd003/ff-c23):** Used for training on high-quality Deepfakes, Face2Face, and FaceSwap manipulations.
+    * **[DFFD (Diverse Fake Face Dataset)](https://cvlab.cse.msu.edu/dffd-dataset.html):** integrated to improve generalization across different GAN generation methods.
 * **Pipeline:** Face Cropping $\rightarrow$ Resize $\rightarrow$ Normalization (Mean/Std: 0.5).
 * **Note:** Heavy geometric augmentation (rotation) was avoided as it destroys subtle deepfake texture artifacts.
 
