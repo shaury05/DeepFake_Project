@@ -73,3 +73,37 @@ We validated that the models focus on the face and not the background:
 git clone [https://github.com/yourusername/deepfake-detection.git](https://github.com/yourusername/deepfake-detection.git)
 cd deepfake-detection
 pip install torch torchvision timm scikit-learn opencv-python matplotlib
+
+Running the Notebook
+The main logic is contained in DeepFake.ipynb. To replicate the training:
+
+Download the dataset (FaceForensics++/DFFD).
+
+Update the dataset_path variable in the first cell.
+
+Run the notebook cells sequentially to train individual models.
+
+Execute the Ensemble Block at the end to generate the final prediction score.
+
+Python
+
+# Example Code Snippet for Inference
+model = torch.load('weights/best_vit.pth')
+img = transform(Image.open('test_image.jpg'))
+output = model(img.unsqueeze(0))
+prediction = torch.sigmoid(output).item()
+print(f"Fake Probability: {prediction:.4f}")
+🔍 Observations & Challenges
+AMP Issues: We initially faced slowdowns with Automatic Mixed Precision; fixing the autocast scope solved this.
+
+Normalization: Normalizing inputs to [-1, 1] was critical for ViT convergence.
+
+Texture vs. Geometry: CNNs struggled with "smooth" deepfakes, while ViT handled them well, proving the need for hybrid architectures.
+
+👥 Contributors
+Shaury Pratap Singh - LinkedIn
+
+Bhanu Prakash Nuthalapaty
+
+📜 License
+This project is licensed under the MIT License - see the LICENSE file for details.
