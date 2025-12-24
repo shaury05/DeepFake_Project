@@ -1,4 +1,3 @@
-# DeepFake_Project
 # Deepfake Detection using Hybrid Neural Architectures
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
@@ -41,7 +40,7 @@ The system was tested on a strictly unseen test set. The **Vision Transformer (V
 
 ## 🏗️ Architecture & Methodology
 
-* ### 1. Data Preprocessing
+### 1. Data Preprocessing
 * **Dataset:** We utilized a balanced dataset of 13,000+ facial images sourced from two primary benchmarks:
     * **[FaceForensics++ (FF++)](https://www.kaggle.com/datasets/xdxd003/ff-c23):** Used for training on high-quality Deepfakes, Face2Face, and FaceSwap manipulations.
     * **[DFFD (Diverse Fake Face Dataset)](https://cvlab.cse.msu.edu/dffd-dataset.html):** integrated to improve generalization across different GAN generation methods.
@@ -74,36 +73,48 @@ git clone [https://github.com/yourusername/deepfake-detection.git](https://githu
 cd deepfake-detection
 pip install torch torchvision timm scikit-learn opencv-python matplotlib
 
-Running the Notebook
-The main logic is contained in DeepFake.ipynb. To replicate the training:
+```
 
-Download the dataset (FaceForensics++/DFFD).
+### Running the Notebook
 
-Update the dataset_path variable in the first cell.
+The main logic is contained in `DeepFake.ipynb`. To replicate the training:
 
-Run the notebook cells sequentially to train individual models.
+1. Download the dataset (FaceForensics++/DFFD).
+2. Update the `dataset_path` variable in the first cell.
+3. Run the notebook cells sequentially to train individual models.
+4. Execute the **Ensemble Block** at the end to generate the final prediction score.
 
-Execute the Ensemble Block at the end to generate the final prediction score.
-
-Python
-
+```python
 # Example Code Snippet for Inference
 model = torch.load('weights/best_vit.pth')
 img = transform(Image.open('test_image.jpg'))
 output = model(img.unsqueeze(0))
 prediction = torch.sigmoid(output).item()
 print(f"Fake Probability: {prediction:.4f}")
-🔍 Observations & Challenges
-AMP Issues: We initially faced slowdowns with Automatic Mixed Precision; fixing the autocast scope solved this.
 
-Normalization: Normalizing inputs to [-1, 1] was critical for ViT convergence.
+```
 
-Texture vs. Geometry: CNNs struggled with "smooth" deepfakes, while ViT handled them well, proving the need for hybrid architectures.
+---
 
-👥 Contributors
-Shaury Pratap Singh - LinkedIn
+## 🔍 Observations & Challenges
 
-Bhanu Prakash Nuthalapaty
+* **AMP Issues:** We initially faced slowdowns with Automatic Mixed Precision; fixing the autocast scope solved this.
+* **Normalization:** Normalizing inputs to `[-1, 1]` was critical for ViT convergence.
+* **Texture vs. Geometry:** CNNs struggled with "smooth" deepfakes, while ViT handled them well, proving the need for hybrid architectures.
 
-📜 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+---
+
+## 👥 Contributors
+
+* **Shaury Pratap Singh** - [LinkedIn](https://www.linkedin.com/in/your-profile)
+* **Bhanu Prakash Nuthalapaty**
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](https://www.google.com/search?q=LICENSE) file for details.
+
+```
+
+```
