@@ -106,7 +106,7 @@ print(f"Fake Probability: {prediction:.4f}")
 
 ## 👥 Contributors
 
-* **Shaury Pratap Singh** - [LinkedIn](www.linkedin.com/in/shaury05)
+* **Shaury Pratap Singh** - [LinkedIn](https://www.linkedin.com/in/shaury05)
 * **Bhanu Prakash Nuthalapaty**
 
 ---
