@@ -114,7 +114,3 @@ print(f"Fake Probability: {prediction:.4f}")
 ## 📜 License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/shaury05/DeepFake_Project/blob/main/LICENSE) file for details.
-
-```
-
-```
