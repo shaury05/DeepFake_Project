@@ -108,7 +108,7 @@ print(f"Fake Probability: {prediction:.4f}")
 
 * **Shaury Pratap Singh** - [LinkedIn](https://www.linkedin.com/in/shaury05)
 * **Bhanu Prakash Nuthalapaty**
-Developed for **DS 677: Deep Learning** at NJIT.
+* Developed for **DS 677: Deep Learning** at NJIT.
 ---
 
 ## 📜 License
